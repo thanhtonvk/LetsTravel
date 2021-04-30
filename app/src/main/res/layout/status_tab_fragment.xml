@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:drawableEnd="@drawable/ic_camera"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/border_edittext"
+        android:hint="Bạn đang nghĩ gì thế?"
+        android:gravity="center"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listview_status"/>
+</LinearLayout>

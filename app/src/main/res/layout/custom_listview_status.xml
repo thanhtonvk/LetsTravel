@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/custom_listview_status_tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:text="Nguyễn Thị Anh"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đã checkin tại Ecopark"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/custom_listview_status_tv_content"/>
+    <ImageView
+        android:id="@+id/custom_listviewstatus_img_thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
+    <LinearLayout
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:gravity="center"
+            android:hint="Bình luận gì đó đi"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="2"
+            android:background="@drawable/border_edittext"/>
+        <Button
+            android:textColor="@color/white"
+            android:background="@drawable/border_button"
+            android:text="Bình luận"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="8"/>
+    </LinearLayout>
+</LinearLayout>

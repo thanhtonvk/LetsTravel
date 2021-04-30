@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.User.UserActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:weightSum="10"
+        android:background="@color/primary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_place"/>
+            <TextView
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Let's Travel"/>
+        </LinearLayout>
+      <MultiAutoCompleteTextView
+          android:gravity="center"
+          android:hint="Bạn muốn tìm gì??"
+          android:id="@+id/autoComplete_AcitivyUser_search"
+          android:drawableEnd="@drawable/ic_search"
+          android:layout_gravity="center"
+          android:backgroundTint="@color/white"
+          android:layout_weight="2"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:background="@drawable/border_edittext"/>
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="12"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout_ActivityUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="11"/>
+        <View
+            android:backgroundTint="@color/primary"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager_ActivityUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>
