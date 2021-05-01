@@ -33,7 +33,7 @@ public class UserAdapter extends FragmentPagerAdapter {
                 return newFeedTabFragment;
             case 1:
                 MapTabFragment mapTabFragment = new MapTabFragment();
-                return  mapTabFragment;
+                return mapTabFragment;
             case 2:
                 StatusTabFragment statusTabFragment = new StatusTabFragment();
                 return statusTabFragment;
