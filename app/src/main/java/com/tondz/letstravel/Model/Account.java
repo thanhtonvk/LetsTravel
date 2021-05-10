@@ -1,26 +1,9 @@
 package com.tondz.letstravel.Model;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Serializable;
-import java.util.List;
-
-public class Account implements Serializable {
-    private String username;
-    private String password;
-    private String email;
-    private String phonenumber;
-    private boolean permission;
-
-    public Account() {
-
-    }
+public class Account {
+    private String username,password,fullname,dateofbirth,email,phonenumber;
+    private byte[]avatar;
+    private String permission;
 
     public String getUsername() {
         return username;
@@ -36,6 +19,22 @@ public class Account implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public String getDateofbirth() {
+        return dateofbirth;
+    }
+
+    public void setDateofbirth(String dateofbirth) {
+        this.dateofbirth = dateofbirth;
     }
 
     public String getEmail() {
@@ -54,83 +53,41 @@ public class Account implements Serializable {
         this.phonenumber = phonenumber;
     }
 
-    public boolean isPermission() {
+    public byte[] getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
+    }
+
+    public Account(String username, String password, String fullname, String dateofbirth, String email, String phonenumber, byte[] avatar) {
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.dateofbirth = dateofbirth;
+        this.email = email;
+        this.phonenumber = phonenumber;
+        this.avatar = avatar;
+        permission ="user";
+    }
+
+    public String getPermission() {
         return permission;
     }
 
-    public void setPermission(boolean permission) {
+    public void setPermission(String permission) {
         this.permission = permission;
     }
 
-    public static File getFile() {
-        return file;
-    }
-
-    public static void setFile(File file) {
-        Account.file = file;
-    }
-
-    public Account(String username, String password, String email, String phonenumber) {
+    public Account(String username, String password, String fullname, String dateofbirth, String email, String phonenumber, byte[] avatar, String permission) {
         this.username = username;
         this.password = password;
-        this.email = email;
+        this.fullname = fullname;
+        this.dateofbirth = dateofbirth;
+        this.email = email;        //    String username, String password, String fullname, String dateofbirth, String email, String phonenumber, byte[] avatar, String permission
         this.phonenumber = phonenumber;
-        this.permission = false;
-    }
-
-    public Account(String username, String password, String email, String phonenumber, boolean permission) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.phonenumber = phonenumber;
+        this.avatar = avatar;
         this.permission = permission;
-    }
-
-    @Override
-    public String toString() {
-        return username + ";" + password + ";" + email + ";" + phonenumber + ";" + permission;
-    }
-
-    static File file = new File("login.csv");
-
-    public void writeFile(List<Account> accounts) {
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-                for (Account account : accounts
-                ) {
-                    outputStreamWriter.write(account.toString() + "\n");
-                }
-                outputStreamWriter.close();
-                fileOutputStream.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public List<Account> readFile(List<Account> accounts) throws IOException {
-        try {
-            FileInputStream fileInputStream = new FileInputStream(file);
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-            String str = "";
-            while ((str = bufferedReader.readLine()) != null) {
-                String[] arr = str.split(";");
-                accounts.add(new Account(arr[0], arr[1], arr[2], arr[3], Boolean.parseBoolean(arr[4])));
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return accounts;
     }
 }

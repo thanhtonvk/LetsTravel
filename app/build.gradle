@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.tondz.letstravel"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -38,10 +38,12 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
     implementation 'com.karumi:dexter:5.0.0'
     implementation 'com.github.mancj:MaterialSearchBar:0.8.1'
     implementation 'com.google.android.libraries.places:places:1.1.0'
+    implementation 'org.slf4j:slf4j-simple:1.7.25'
+    implementation 'com.google.maps:google-maps-services:0.18.0'
+    implementation 'org.slf4j:slf4j-simple:1.7.25'
 
 
 

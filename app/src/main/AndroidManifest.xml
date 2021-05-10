@@ -32,11 +32,8 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-        <activity
-            android:name=".Activity.User.Fragment.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
         <activity android:name=".Activity.User.UserActivity" />
+<!--        <activity android:name=".Test.MapsActivity"/>-->
         <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

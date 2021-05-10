@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.tondz.letstravel.Model.NewFeeds;
+import com.tondz.letstravel.Model.News;
 import com.tondz.letstravel.R;
 
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class NewFeedListAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<NewFeeds>newFeedsArrayList;
-    public NewFeedListAdapter(Context context,ArrayList<NewFeeds>newFeeds){
+    private ArrayList<News>newFeedsArrayList;
+    public NewFeedListAdapter(Context context,ArrayList<News>newFeeds){
         this.context = context;
         this.newFeedsArrayList = newFeeds;
         inflater = LayoutInflater.from(context);
@@ -57,10 +57,10 @@ public class NewFeedListAdapter extends BaseAdapter {
         else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        NewFeeds newFeeds = newFeedsArrayList.get(position);
-        viewHolder.tv_title.setText(newFeeds.getTitle());
+        News newFeeds = newFeedsArrayList.get(position);
+        viewHolder.tv_title.setText(newFeeds.getContent());
         viewHolder.tv_content.setText(newFeeds.getContent());
-        viewHolder.img_thumbnail.setImageResource(newFeeds.getImage());
+        //viewHolder.img_thumbnail.setImageResource(newFeeds.getImage());
         return convertView;
     }
 }

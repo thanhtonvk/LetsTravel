@@ -1,7 +1,10 @@
 package com.tondz.letstravel.Activity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,52 +26,16 @@ import java.util.List;
 
 public class RegisterTabFragment extends Fragment {
     List<Account> accounts;
-    Button btn_register;
+    Button btn_register,btn_choose_image;
     ViewGroup viewGroup;
-    EditText editText_username, editText_password, editText_prepassword, editText_phonenumber, editText_email;
+    EditText editText_username, editText_password, editText_prepassword, editText_phonenumber, editText_email,editText_dateofbirth;
     AlertDialog.Builder builder;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.register_tab_fragment, container, false);
         initView();
-        Account account = new Account();
-        try {
-            accounts = account.readFile(accounts);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        alertDialog();
-        btn_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (Register.registerAccount(editText_username.getText().toString(), editText_password.getText().toString(), editText_prepassword.getText().toString(), editText_email.getText().toString(), editText_phonenumber.getText().toString(), accounts)) {
-                    case 1:
-                        builder.setMessage("Tên tài khoản đã tồn tại, vui lòng nhập tài khoản khác");
-                        builder.show();
-                        break;
-                    case 2:
-                        builder.setMessage("Số điện thoại đã tồn tại, vui lòng nhập số điện thoại khác");
-                        builder.show();
-                        break;
-                    case 3:
-                        builder.setMessage("Email đã tồn tại, vui lòng nhập email khác");
-                        builder.show();
-                        break;
-                    case 4:
-                        builder.setMessage("Mật khẩu nhập lại không khớp, vui lòng kiểm tra lại");
-                        builder.show();
-                        break;
-                    default:
-                        builder.setMessage("Tại tài khoản thành công");
-                        builder.show();
-                        accounts.add(new Account(editText_username.getText().toString(), editText_password.getText().toString(), editText_email.getText().toString(), editText_phonenumber.getText().toString()));
-                        account.writeFile(accounts);
-                        break;
-                }
-            }
-        });
+        eventOnclick();
         return viewGroup;
     }
 
@@ -79,18 +46,29 @@ public class RegisterTabFragment extends Fragment {
         editText_password = viewGroup.findViewById(R.id.edt_register_password);
         editText_prepassword = viewGroup.findViewById(R.id.edt_register_prepassword);
         editText_phonenumber = viewGroup.findViewById(R.id.edt_register_phonenumber);
+        editText_dateofbirth = viewGroup.findViewById(R.id.edt_register_dateofbirth);
         editText_email = viewGroup.findViewById(R.id.edt_register_email);
+        btn_choose_image = viewGroup.findViewById(R.id.btn_choose_avatar);
     }
 
-    private void alertDialog() {
-        builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Thông báo");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+    private void eventOnclick(){
+       btn_choose_image.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               custom_Dialog();
+           }
+       });
+        btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
+            public void onClick(View v) {
+
             }
         });
-
+    }
+    private void custom_Dialog(){
+        Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.custom_dialog_choose_image);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 }

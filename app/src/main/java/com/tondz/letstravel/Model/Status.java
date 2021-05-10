@@ -1,26 +1,21 @@
 package com.tondz.letstravel.Model;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class Status {
-    private int image;
-    private String title;
-    private String content;
+    private String id,content;
+    private byte[]image;
+    private LatLng latLng;
 
-
-    public int getImage() {
-        return image;
+    public String getId() {
+        return id;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getContent() {
         return content;
@@ -30,9 +25,26 @@ public class Status {
         this.content = content;
     }
 
-    public Status(int image, String title, String content) {
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
         this.image = image;
-        this.title = title;
+    }
+
+    public LatLng getLatLng() {
+        return latLng;
+    }
+
+    public void setLatLng(LatLng latLng) {
+        this.latLng = latLng;
+    }
+
+    public Status(String id, String content, byte[] image, LatLng latLng) {
+        this.id = id;
         this.content = content;
+        this.image = image;
+        this.latLng = latLng;
     }
 }

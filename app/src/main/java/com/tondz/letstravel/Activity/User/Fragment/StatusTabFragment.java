@@ -36,7 +36,7 @@ public class StatusTabFragment extends Fragment {
 
     public void setLv_newfeeds() {
         ArrayList<Status> statuses = new ArrayList<>();
-        statuses.add(new Status(R.drawable.pic,"Đỗ Thành Tôn","Ngày hôm nay vui quá là vui"));
+        //statuses.add(new Status(R.drawable.pic,"Đỗ Thành Tôn","Ngày hôm nay vui quá là vui"));
         statusListAdapter = new StatusListAdapter(getContext(),statuses );
         lv_status.setAdapter(statusListAdapter);
     }

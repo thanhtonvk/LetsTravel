@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.tondz.letstravel.Model.NewFeeds;
 import com.tondz.letstravel.Model.Status;
 import com.tondz.letstravel.R;
 
@@ -59,9 +57,9 @@ public class StatusListAdapter extends BaseAdapter {
             viewHolder = (StatusListAdapter.ViewHolder) convertView.getTag();
         }
         Status status = statuses.get(position);
-        viewHolder.tv_title.setText(status.getTitle());
+        viewHolder.tv_title.setText(status.getId());
         viewHolder.tv_content.setText(status.getContent());
-        viewHolder.img_thumbnail.setImageResource(status.getImage());
+//        viewHolder.img_thumbnail.setImageResource(status.getImage());
         return convertView;
     }
 }
