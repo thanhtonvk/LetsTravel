@@ -1,43 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="30dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/custom_listview_status_tv_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:text="Nguyễn Thị Anh"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Đã checkin tại Ecopark"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/custom_listview_status_tv_content"/>
-    <ImageView
-        android:id="@+id/custom_listviewstatus_img_thumbnail"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+    android:layout_height="match_parent"
+    android:background="@drawable/border_frame">
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/img_customlistview_status_avatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
+        <TextView
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:id="@+id/tv_customlistiview_status_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="title"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:maxHeight="100dp"
+                android:id="@+id/tv_customlistiview_status_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="content"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary"/>
+    <ImageView
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:id="@+id/img_customlistiview_status_thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:layout_margin="10dp"
         android:weightSum="10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
+            android:id="@+id/edt_customlistiview_status_comment"
             android:gravity="center"
-            android:hint="Bình luận gì đó đi"
+            android:hint="Comment something..."
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_weight="2"
             android:background="@drawable/border_edittext"/>
         <Button
+            android:id="@+id/btn_customlistiview_status_comment"
             android:textColor="@color/white"
             android:background="@drawable/border_button"
-            android:text="Bình luận"
+            android:text="Comment"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_weight="8"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary"/>
 </LinearLayout>

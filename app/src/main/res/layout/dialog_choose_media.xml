@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:gravity="center"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="match_parent">
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Youtube"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/primary"
+            android:background="@drawable/border_edittext"
+    android:id="@+id/btn_openyoutube"/>
+    <Button
+            android:id="@+id/btn_opensoundcloud"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Soundcloud"
+            android:backgroundTint="@color/primary"
+            android:background="@drawable/border_edittext"
+            android:textColor="@color/white"/>
+</LinearLayout>

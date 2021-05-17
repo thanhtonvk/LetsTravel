@@ -30,7 +30,7 @@
           android:gravity="center"
           android:hint="Bạn muốn tìm gì??"
           android:id="@+id/autoComplete_AcitivyUser_search"
-          android:drawableEnd="@drawable/ic_search"
+          android:drawableRight="@drawable/ic_search"
           android:layout_gravity="center"
           android:backgroundTint="@color/white"
           android:layout_weight="2"
@@ -39,23 +39,20 @@
           android:background="@drawable/border_edittext"/>
     </LinearLayout>
     <LinearLayout
-        android:weightSum="12"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout_ActivityUser"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="11"/>
+            android:layout_height="40dp"/>
         <View
-            android:backgroundTint="@color/primary"
+            android:background="@color/primary"
             android:layout_width="match_parent"
-            android:layout_height="1dp" />
+            android:layout_height="2dp" />
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewpager_ActivityUser"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 </LinearLayout>

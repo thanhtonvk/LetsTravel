@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <EditText
-        android:drawableEnd="@drawable/ic_camera"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/border_edittext"
-        android:hint="Bạn đang nghĩ gì thế?"
-        android:gravity="center"/>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listview_status"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_user_status_avatar"
+                    android:src="@drawable/ic_user"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"/>
+                <Button
+                    android:id="@+id/btn_user_status_checking"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#CDCDCD"
+                    android:drawableRight="@drawable/ic_camera"
+                    android:textAllCaps="false"
+                    android:text="Checkin....."
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_edittext"/>
+            </LinearLayout>
+            <ListView
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/lv_user_liststatus"/>
+        </LinearLayout>
+
+
 </LinearLayout>

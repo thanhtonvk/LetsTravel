@@ -5,6 +5,10 @@ public class Account {
     private byte[]avatar;
     private String permission;
 
+    public Account() {
+
+    }
+
     public String getUsername() {
         return username;
     }

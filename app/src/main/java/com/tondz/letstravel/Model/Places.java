@@ -6,6 +6,10 @@ public class Places {
     private String id,name;
     private LatLng latLng;
 
+    public Places() {
+
+    }
+
     public String getId() {
         return id;
     }
@@ -34,5 +38,10 @@ public class Places {
         this.id = id;
         this.name = name;
         this.latLng = latLng;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity.User.ProfileActivity">
+    <LinearLayout
+            android:weightSum="10"
+            android:background="@color/primary"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_place"/>
+            <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Let's Travel"/>
+        </LinearLayout>
+        <AutoCompleteTextView
+                android:gravity="center"
+                android:hint="Search"
+                android:id="@+id/autoComplete_profile_search"
+                android:drawableRight="@drawable/ic_search"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/border_edittext"/>
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView
+                    android:id="@+id/img_profile_avatar"
+                    android:layout_width="100dp" android:layout_height="100dp"
+                    android:scaleType="centerCrop"/>
+            <TextView
+                    android:id="@+id/tv_profile_name"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:text="Đỗ Thành Tôn"
+                      android:textSize="20sp"
+                      android:textColor="@color/black"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <ImageView
+                        android:id="@+id/img_profile_icavatar"
+                        android:src="@drawable/ic_user"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="centerCrop"/>
+                <Button
+                        android:id="@+id/btn_profile_checkin"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#CDCDCD"
+                        android:drawableRight="@drawable/ic_camera"
+                        android:textAllCaps="false"
+                        android:text="Write somethings....."
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/border_edittext"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <ListView
+            android:layout_margin="10dp"
+            android:id="@+id/lv_profile_status"
+            android:layout_width="match_parent" android:layout_height="match_parent"/>
+</LinearLayout>

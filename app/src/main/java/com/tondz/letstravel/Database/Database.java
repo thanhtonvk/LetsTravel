@@ -53,6 +53,7 @@ public class Database extends SQLiteOpenHelper {
 
         db.execSQL("create table news(" +
                 "id text primary key," +
+                "titile text," +
                 "content text," +
                 "id_places text," +
                 "image blob)");
@@ -69,7 +70,8 @@ public class Database extends SQLiteOpenHelper {
                 "content text," +
                 "image blob," +
                 "lat float," +
-                "lng float)");
+                "lng float," +
+                "username text)");
     }
 
     @Override
@@ -109,6 +111,7 @@ public class Database extends SQLiteOpenHelper {
             cursor.moveToNext();
         }
         database.close();
+
         return accountList;
     }
 
@@ -156,6 +159,7 @@ public class Database extends SQLiteOpenHelper {
             cursor.moveToNext();
         }
         database.close();
+  
         return commentNewsList;
     }
 
@@ -173,7 +177,7 @@ public class Database extends SQLiteOpenHelper {
 
     public void deleteCommentNews(CommentNews commentNews) {
         SQLiteDatabase database = getWritableDatabase();
-        database.delete("commnetnews", "id = ?", new String[]{commentNews.getId()});
+        database.delete("commentnews", "id = ?", new String[]{commentNews.getId()});
         database.close();
     }
 
@@ -227,6 +231,7 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase database = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("id", news.getId());
+        values.put("titile",news.getTitle());
         values.put("content", news.getContent());
         values.put("id_places", news.getId_places());
         values.put("image", news.getImage());
@@ -238,10 +243,11 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase database = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("id", news.getId());
+        values.put("titile",news.getTitle());
         values.put("content", news.getContent());
         values.put("id_places", news.getId_places());
         values.put("image", news.getImage());
-        database.insert("news", null, values);
+        database.update("news", values, "id = ?",new  String[]{news.getId()});
         database.close();
     }
 
@@ -257,7 +263,7 @@ public class Database extends SQLiteOpenHelper {
         Cursor cursor = database.rawQuery("select * from news", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            News news = new News(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getBlob(3));
+            News news = new News(cursor.getString(0), cursor.getString(1), cursor.getString(2),cursor.getString(3), cursor.getBlob(4));
             newsList.add(news);
             cursor.moveToNext();
         }
@@ -278,6 +284,7 @@ public class Database extends SQLiteOpenHelper {
             cursor.moveToNext();
         }
         database.close();
+      
         return placesList;
     }
 
@@ -317,11 +324,12 @@ public class Database extends SQLiteOpenHelper {
         Cursor cursor = database.rawQuery("select * from status", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            Status status = new Status(cursor.getString(0), cursor.getString(1),cursor.getBlob(2),new LatLng(cursor.getFloat(3),cursor.getFloat(4)));
+            Status status = new Status(cursor.getString(0), cursor.getString(1),cursor.getBlob(2),new LatLng(cursor.getFloat(3),cursor.getFloat(4)),cursor.getString(5));
             statusList.add(status);
             cursor.moveToNext();
         }
         database.close();
+      
         return statusList;
     }
     public void addStatus(Status status){
@@ -332,6 +340,7 @@ public class Database extends SQLiteOpenHelper {
         values.put("image",status.getImage());
         values.put("lat",status.getLatLng().latitude);
         values.put("lng",status.getLatLng().longitude);
+        values.put("username",status.getUsername());
         database.insert("status",null,values);
         database.close();
     }
@@ -348,6 +357,7 @@ public class Database extends SQLiteOpenHelper {
         values.put("image",status.getImage());
         values.put("lat",status.getLatLng().latitude);
         values.put("lng",status.getLatLng().longitude);
+        values.put("username",status.getUsername());
         database.update("status",values,"id = ?",new String[]{status.getId()});
         database.close();
     }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_frame"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/btn_dialog_choose_img_news"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_image_24" />
+
+        <EditText
+            android:id="@+id/edt_dialog_title_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/border_edittext"
+            android:hint="Title"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <EditText
+            android:maxHeight="150dp"
+            android:padding="20dp"
+            android:id="@+id/edt_dialog_content_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/border_edittext"
+            android:hint="Content"/>
+        <Spinner
+            android:gravity="center"
+            android:id="@+id/sp_dialog_places_news"
+            android:paddingLeft="10dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/border_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        <Button
+            android:id="@+id/btn_dialog_post_news"
+            android:text="Post"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/border_button"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</LinearLayout>

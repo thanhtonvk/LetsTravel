@@ -1,7 +1,27 @@
 package com.tondz.letstravel.Model;
 
 public class News {
-    private String id,content,id_places;
+    private String id;
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public News(String id, String title, String content, String id_places, byte[] image) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.id_places = id_places;
+        this.image = image;
+    }
+
+    private String content;
+    private String id_places;
     private byte[]image;
 
     public String getId() {
@@ -36,10 +56,4 @@ public class News {
         this.image = image;
     }
 
-    public News(String id, String content, String id_places, byte[] image) {
-        this.id = id;
-        this.content = content;
-        this.id_places = id_places;
-        this.image = image;
-    }
 }

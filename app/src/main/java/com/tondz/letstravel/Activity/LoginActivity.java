@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
    TabLayout tabLayout;
    LoginAdapter loginAdapter;
    ViewPager viewPager;
-   Button btn;
+   public static int a = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,5 +33,9 @@ public class LoginActivity extends AppCompatActivity {
         loginAdapter = new LoginAdapter(getSupportFragmentManager(),this,tabLayout.getTabCount());
         viewPager.setAdapter(loginAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+    }
+    @Override
+    public void onBackPressed(){
+        finish();
     }
 }

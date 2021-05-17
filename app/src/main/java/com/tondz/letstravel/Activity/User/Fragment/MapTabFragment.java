@@ -2,18 +2,14 @@ package com.tondz.letstravel.Activity.User.Fragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,14 +26,18 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.tondz.letstravel.Activity.Admin.PlacesManagerActivity;
+import com.tondz.letstravel.Activity.ModuleAdapter.NewFeedListAdapter;
+import com.tondz.letstravel.Activity.ModuleAdapter.StatusAdapter;
 import com.tondz.letstravel.R;
+import com.tondz.letstravel.StartActivity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -47,10 +47,7 @@ public class MapTabFragment extends Fragment implements OnMapReadyCallback {
     GoogleMap mMap;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
-    FusedLocationProviderClient fusedLocationClient;
     Spinner spinner_typePlaces;
-    double currentLat, currentLong;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -73,8 +70,18 @@ public class MapTabFragment extends Fragment implements OnMapReadyCallback {
                 startActivityForResult(intent, 100);
             }
         });
-        setSpinner_typePlaces();
+
         client = LocationServices.getFusedLocationProviderClient(getActivity());
+        if (NewFeedListAdapter.places != null) {
+            mMap.addMarker(new MarkerOptions().position(NewFeedListAdapter.places.getLatLng()).title(NewFeedListAdapter.places.getName()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(NewFeedListAdapter.places.getLatLng(), 18));
+            NewFeedListAdapter.places=null;
+        }
+        if(StatusAdapter.places!=null){
+            mMap.addMarker(new MarkerOptions().position(StatusAdapter.places));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(StatusAdapter.places,18));
+            StatusAdapter.places =null;
+        }
         return viewGroup;
     }
 
@@ -114,30 +121,13 @@ public class MapTabFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
+
+
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
-        fusedLocationClient = new FusedLocationProviderClient(getContext());
-        fusedLocationClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    // Logic to handle location object
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 18));
-                    currentLat = location.getLatitude();
-                    currentLong = location.getLongitude();
-                }
-            }
-        });
 
         //find nearby places
 
@@ -159,7 +149,7 @@ public class MapTabFragment extends Fragment implements OnMapReadyCallback {
             }
         });
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-
+        setSpinner_typePlaces();
 
     }
 
@@ -170,8 +160,38 @@ public class MapTabFragment extends Fragment implements OnMapReadyCallback {
 
     public void setSpinner_typePlaces() {
         spinner_typePlaces.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, placeNameList));
+        spinner_typePlaces.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mMap.clear();
+                List<com.tondz.letstravel.Model.Places> placesList = getPlaces(placeNameList[position]);
+                for (com.tondz.letstravel.Model.Places places:placesList
+                     ) {
+                    mMap.addMarker(new MarkerOptions().position(places.getLatLng()).title(places.getName()));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
+
     String[] placeNameList = {"Quanh đây", "ATM", "Ngân hàng", "Bệnh viện", "Rạp phim", "Quán ăn"};
-
-
+    private List<com.tondz.letstravel.Model.Places> getPlaces(String placeName){
+        List<com.tondz.letstravel.Model.Places>placesList = new ArrayList<>();
+        for (com.tondz.letstravel.Model.Places places: StartActivity.database.getAllPlaces()
+             ) {
+            if(places.getName().contains(placeName)) placesList.add(places);
+        }
+        return placesList;
+    }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        }
+    }
 }

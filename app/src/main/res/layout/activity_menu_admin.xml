@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@color/primary"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Admin.MenuAdmin">
+    <LinearLayout
+        android:gravity="center"
+        android:background="@drawable/background"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <ImageView
+            android:layout_marginTop="-15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_place"/>
+        <TextView
+            android:layout_marginTop="-15dp"
+            android:textSize="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let's Travel"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/border_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/btn_admin_newsmanagement"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border_button"
+            android:text="News Management"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/btn_admin_placesmanagement"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border_button"
+            android:text="Places Management"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/btn_admin_usermanagement"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border_button"
+            android:text="User Management"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+        <Button
+            android:layout_margin="20dp"
+            android:id="@+id/btn_admin_statusmanagement"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border_button"
+            android:text="Status Management"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".Activity.Admin.UpdatePlacesActivity">
+
+    <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10">
+
+        <EditText
+                android:id="@+id/edt_placesmanager_name"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:background="@drawable/border_edittext"
+                android:gravity="center"
+                android:hint="Name places"/>
+
+        <Button
+                android:id="@+id/btn_placesmanager_update"
+                android:layout_margin="5dp"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="7"
+                android:background="@drawable/border_button"
+                android:text="Add"/>
+    </LinearLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+        <fragment
+                android:id="@+id/map_fragment_placesmanager"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <Button
+                android:id="@+id/edt_placesmanager_map_search"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="60dp"
+                android:background="@drawable/border_edittext"
+                android:backgroundTint="#80FFFFFF"
+                android:drawableRight="@drawable/ic_search"
+                android:gravity="center"
+                android:hint="Find places"/>
+    </RelativeLayout>
+</LinearLayout>

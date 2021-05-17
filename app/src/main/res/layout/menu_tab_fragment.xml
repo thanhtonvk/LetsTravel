@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout
+                    android:id="@+id/btn_open_profile"
+                    android:layout_margin="10dp"
+                    android:gravity="center" android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <ImageView
+                        android:id="@+id/img_tabmenu_avatar"
+                        android:scaleType="centerCrop"
+                        android:layout_width="60dp" android:layout_height="60dp"/>
+                <LinearLayout
+                        android:padding="5dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent" android:layout_height="match_parent">
+                    <TextView
+                            android:text="Do Thanh Ton"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:id="@+id/edt_menutab_name"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                              android:text="View profile"/>
+                </LinearLayout>
+            </LinearLayout>
+            <View android:layout_margin="5dp"
+                  android:layout_width="match_parent" android:layout_height="1dp"
+                  android:background="@color/primary"/>
+            <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <Button
+                        android:id="@+id/btn_playgame"
+                        android:layout_marginRight="30dp"
+                        android:backgroundTint="#25A4C7"
+                        android:padding="10dp"
+                        android:layout_width="130dp" android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_baseline_videogame_asset_24"
+                        android:text="Play games"
+                        android:background="@drawable/border_button"
+                        android:textColor="@color/white"/>
+                <Button
+                        android:id="@+id/btn_youtube"
+                        android:layout_marginLeft="30dp"
+                        android:backgroundTint="#25A4C7"
+                        android:padding="10dp"
+                        android:layout_width="130dp" android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_youtube"
+                        android:text="Media"
+                        android:background="@drawable/border_button"
+                        android:textColor="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <Button
+                        android:id="@+id/btn_report"
+                        android:layout_marginRight="30dp"
+                        android:backgroundTint="#25A4C7"
+                        android:padding="10dp"
+                        android:layout_width="130dp" android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_report"
+                        android:text="Reports"
+                        android:background="@drawable/border_button"
+                        android:textColor="@color/white"/>
+                <Button
+                        android:id="@+id/btn_logout"
+                        android:layout_marginLeft="30dp"
+                        android:backgroundTint="#25A4C7"
+                        android:padding="10dp"
+                        android:layout_width="130dp" android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/ic_baseline_logout_24"
+                        android:text="Logout"
+                        android:background="@drawable/border_button"
+                        android:textColor="@color/white"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

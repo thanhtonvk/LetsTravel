@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.User.UpdateStatusActivity">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Create a new post"
+                    android:textColor="#99000000"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:layout_gravity="center"
+                    android:id="@+id/btn_status_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="8"
+                    android:background="@drawable/border_button"
+                    android:backgroundTint="#9925A4C7"
+                    android:text="Post"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/primary" />
+
+            <EditText
+                android:id="@+id/edt_status_content"
+                android:maxHeight="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/border_edittext"
+                android:hint="Write somethings"
+                android:padding="10dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/primary" />
+            <ImageView
+                android:id="@+id/img_status_image"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/primary" />
+            <Button
+                android:id="@+id/btn_status_chooseimage"
+                android:backgroundTint="#9925A4C7"
+                android:textColor="@color/white"
+                android:text="Choose Image"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/border_button"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/primary" />
+            <RelativeLayout
+                android:layout_margin="10dp"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:orientation="vertical">
+                <fragment
+                    android:id="@+id/map_fragment_status"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <Button
+                    android:id="@+id/edt_status_map_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="60dp"
+                    android:background="@drawable/border_edittext"
+                    android:backgroundTint="#80FFFFFF"
+                    android:drawableRight="@drawable/ic_search"
+                    android:gravity="center"
+                    android:hint="Find places" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

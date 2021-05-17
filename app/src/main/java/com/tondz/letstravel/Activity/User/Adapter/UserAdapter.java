@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.tondz.letstravel.Activity.User.Fragment.MapTabFragment;
+import com.tondz.letstravel.Activity.User.Fragment.MenuTabFragment;
 import com.tondz.letstravel.Activity.User.Fragment.NewFeedTabFragment;
 import com.tondz.letstravel.Activity.User.Fragment.StatusTabFragment;
 
@@ -38,8 +39,8 @@ public class UserAdapter extends FragmentPagerAdapter {
                 StatusTabFragment statusTabFragment = new StatusTabFragment();
                 return statusTabFragment;
             case 3:
-                NewFeedTabFragment newFeedTabFragment4 = new NewFeedTabFragment();
-                return newFeedTabFragment4;
+                MenuTabFragment menuTabFragment = new MenuTabFragment();
+                return menuTabFragment;
             default:
                 return null;
         }

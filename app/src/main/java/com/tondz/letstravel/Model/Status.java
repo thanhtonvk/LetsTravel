@@ -6,6 +6,15 @@ public class Status {
     private String id,content;
     private byte[]image;
     private LatLng latLng;
+    private String username;
+
+    public Status(String id, String content, byte[] image, LatLng latLng, String username) {
+        this.id = id;
+        this.content = content;
+        this.image = image;
+        this.latLng = latLng;
+        this.username = username;
+    }
 
     public String getId() {
         return id;
@@ -41,10 +50,11 @@ public class Status {
         this.latLng = latLng;
     }
 
-    public Status(String id, String content, byte[] image, LatLng latLng) {
-        this.id = id;
-        this.content = content;
-        this.image = image;
-        this.latLng = latLng;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
