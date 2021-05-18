@@ -83,4 +83,9 @@ public class PlacesManagerActivity extends Activity {
 
 
     }
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(getApplicationContext(),MenuAdmin.class));
+    }
 }

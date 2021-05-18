@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.tondz.letstravel.Activity.LoginActivity;
 import com.tondz.letstravel.R;
 
 public class MenuAdmin extends AppCompatActivity {
@@ -57,5 +58,11 @@ public class MenuAdmin extends AppCompatActivity {
         btn_user = findViewById(R.id.btn_admin_usermanagement);
         btn_status =findViewById(R.id.btn_admin_statusmanagement);
         btn_places = findViewById(R.id.btn_admin_placesmanagement);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 }

@@ -1,5 +1,6 @@
 package com.tondz.letstravel.Activity.Admin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
@@ -28,5 +29,10 @@ public class UserMangerActivity extends AppCompatActivity {
     private void initView() {
         edt_search = findViewById(R.id.edt_usersmanager_search);
         lv_users = findViewById(R.id.lv_admin_usersmanager);
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(getApplicationContext(),MenuAdmin.class));
     }
 }

@@ -164,7 +164,7 @@ public class MapTabFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mMap.clear();
-                List<com.tondz.letstravel.Model.Places> placesList = getPlaces(placeNameList[position]);
+                List<com.tondz.letstravel.Model.Places> placesList = getPlaces(keywordPlaces[position]);
                 for (com.tondz.letstravel.Model.Places places:placesList
                      ) {
                     mMap.addMarker(new MarkerOptions().position(places.getLatLng()).title(places.getName()));
@@ -178,12 +178,13 @@ public class MapTabFragment extends Fragment implements OnMapReadyCallback {
         });
     }
 
-    String[] placeNameList = {"Quanh đây", "ATM", "Ngân hàng", "Bệnh viện", "Rạp phim", "Quán ăn"};
+    String[] placeNameList = {"Quanh đây", "Cửa hàng tạp hóa","Nhà hàng","Nhà nghỉ","Trạm xăng","Bệnh viện","Ngân hàng"};
+    String[] keywordPlaces = {"Quanh đây","tạp hóa","nhà hàng","nhà nghỉ","xăng","viện","ngân"};
     private List<com.tondz.letstravel.Model.Places> getPlaces(String placeName){
         List<com.tondz.letstravel.Model.Places>placesList = new ArrayList<>();
         for (com.tondz.letstravel.Model.Places places: StartActivity.database.getAllPlaces()
              ) {
-            if(places.getName().contains(placeName)) placesList.add(places);
+            if(places.getName().toLowerCase().contains(placeName.toLowerCase())) placesList.add(places);
         }
         return placesList;
     }

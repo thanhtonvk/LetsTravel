@@ -30,10 +30,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             // all the views currently in your ScrollView
-
             <TextView
                 android:padding="10dp"
-                android:maxHeight="100dp"
                 android:id="@+id/tv_customlistiview_newfeed_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

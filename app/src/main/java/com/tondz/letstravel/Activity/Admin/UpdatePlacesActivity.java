@@ -177,7 +177,7 @@ public class UpdatePlacesActivity extends FragmentActivity implements OnMapReady
     }
 
     private String autoID() {
-        String code = "PLACES";
+        String code = "PLACE";
         int count = 0;
         for (com.tondz.letstravel.Model.Places places : StartActivity.database.getAllPlaces()
         ) {

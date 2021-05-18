@@ -1,5 +1,6 @@
 package com.tondz.letstravel.Activity.Admin;
 
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -30,5 +31,10 @@ public class StatusManagerActivity extends AppCompatActivity {
     private void initView(){
         lv_status = findViewById(R.id.lv_admin_statusmanager);
         edt_search = findViewById(R.id.edt_statusmanager_search);
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(getApplicationContext(),MenuAdmin.class));
     }
 }

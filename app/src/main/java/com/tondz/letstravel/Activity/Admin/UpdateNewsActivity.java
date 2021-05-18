@@ -95,6 +95,7 @@ public class UpdateNewsActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(), NewsManagementActivity.class));
                     finish();
+                    NewFeedListAdapter.getNews = null;
                 }
             });
         } else btn_post.setText("Post");

@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class LoginAdapter extends FragmentPagerAdapter {
 
-    String []list = {"Đăng nhập","Tạo tài khoản"};
+    String []list = {"Sign in","Sign up"};
     private Context context;
     private int totalTab;
     public  LoginAdapter(FragmentManager fragmentManager,Context context,int totalTab){
